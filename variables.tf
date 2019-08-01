@@ -3,7 +3,7 @@
 ##
 variable "create_lb" {
   description = "Set false if you not want create Load Balancer, default is true"
-  default     = "true"
+  default     = true
 }
 
 variable "name" {

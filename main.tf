@@ -3,5 +3,5 @@ provider "aws" {
 }
 
 locals {
-  create_elb = var.create_lb == true ? true : false
+  create_elb = var.create_lb == true ? 1 : 0
 }

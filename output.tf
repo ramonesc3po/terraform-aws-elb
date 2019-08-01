@@ -6,7 +6,7 @@ output "subnets" {
 }
 
 output "vpc" {
-  value = element(concatt(aws_lb.this.*.vpc_id, [""]), 0)
+  value = element(concat(aws_lb.this.*.vpc_id, [""]), 0)
 }
 
 output "lb_dns_name" {

@@ -40,3 +40,4 @@ resource "aws_lb" "this" {
     delete = var.lb_timeouts["delete"]
   }
 }
+

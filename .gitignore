@@ -11,3 +11,4 @@ terraform.tfplan
 *.plan
 *.aws
 .aws
+output.json

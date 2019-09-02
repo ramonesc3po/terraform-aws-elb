@@ -28,3 +28,7 @@ output "lb_id" {
 output "lb_zone_id" {
   value = element(concat(aws_lb.this.*.zone_id, [""]), 0)
 }
+
+output "lb_name" {
+  value = element(concat(aws_lb.this.*.name, [""]), 0)
+}

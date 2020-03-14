@@ -1,14 +1,14 @@
 locals {
-  name_elb         = "${var.name}-${var.tier}"
+  name_elb = "${var.name}-${var.tier}"
 }
 
 resource "aws_lb" "this" {
   count = local.create_elb
 
-  name = local.name_elb
-  internal = var.is_internal
+  name               = local.name_elb
+  internal           = var.is_internal
   load_balancer_type = var.type
-  security_groups = var.security_groups
+  security_groups    = var.security_groups
 
   subnets = var.subnets
 
@@ -21,17 +21,18 @@ resource "aws_lb" "this" {
   #enable logs
   access_logs {
     enabled = var.access_log_bucket == "" ? false : true
-    bucket = var.access_log_bucket
+    bucket  = var.access_log_bucket
+    prefix  = var.access_log_prefix
   }
 
   tags = merge(
-  var.tags,
-  {
-    Name = local.name_elb
-    Terraform = "true"
-    Tier = var.tier
-    Organization = var.organization
-  }
+    var.tags,
+    {
+      Name         = local.name_elb
+      Terraform    = "true"
+      Tier         = var.tier
+      Organization = var.organization
+    }
   )
 
   timeouts {

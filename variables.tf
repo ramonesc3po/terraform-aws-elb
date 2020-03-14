@@ -76,9 +76,15 @@ variable "lb_timeouts" {
 }
 
 variable "access_log_bucket" {
-  type = "string"
+  type        = "string"
   description = "Necessary activate the access logs using the bucket name."
-  default = ""
+  default     = ""
+}
+
+variable "access_log_prefix" {
+  type        = string
+  description = "Prefix key"
+  default     = "alb"
 }
 
 ##
@@ -86,6 +92,6 @@ variable "access_log_bucket" {
 ##
 
 variable "tags" {
-  type = "map"
+  type    = "map"
   default = {}
 }
